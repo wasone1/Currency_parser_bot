@@ -1,0 +1,29 @@
+# Кеші Python
+__pycache__/
+*.pyc
+
+# Віртуальне середовище
+venv/
+.venv/
+env/
+ENV/
+
+# Файли середовища (секрети)
+.env
+
+# Локальна база даних SQLite
+db/currency.db
+
+# Згенеровані графіки
+chart_*.png
+
+# IDE/Editor файли
+.vscode/
+.idea/
+
+# Системні файли
+.DS_Store
+Thumbs.db
+
+# Логи (якщо з'являться)
+*.log
