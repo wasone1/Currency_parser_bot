@@ -8,6 +8,21 @@ from db.queries import init_db
 from handlers import user
 from aiogram.types import BotCommand
 
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+def run_stub_server():
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"OK")
+    server = HTTPServer(("0.0.0.0", 8080), Handler)
+    server.serve_forever()
+
+# Запускаємо заглушку у окремому потоці
+threading.Thread(target=run_stub_server, daemon=True).start()
+
 async def main():
     # 1. Ініціалізуємо базу даних
     init_db()
